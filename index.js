@@ -1,13 +1,16 @@
-// Use the fetch API or Axios to communicate with an external web API. Use the data provided by this API to populate your application’s content and features.
-
-const getRandomDogBtn = document.querySelector('#getRandomDogBtn');
 const dogImage = document.querySelector('#dogImage');
 
-getRandomDogBtn.addEventListener('click', () => {
-  fetch('https://dog.ceo/api/breeds/image/random')
-    .then((response) => response.json())
-    .then((data) => {
-      dogImage.src = data.message;
-      dogImage.style.display = 'block';
-    });
-});
+const getRandomDog = async () => {
+  try {
+    const response = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await response.json();
+
+    dogImage.src = data.message;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getRandomDog();
+
+getRandomDogBtn.addEventListener('click', getRandomDog);
