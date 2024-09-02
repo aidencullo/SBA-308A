@@ -35,6 +35,7 @@ const publishDog = (data) => {
   dogImage.style.width = '200px';
   dogImage.src = data.message;
   loadingStatus.textContent = '';
+  dogInfo.textContent = `Breed: ${data.message.split('/')[4]}`;
 };
 
 getRandomDog();
