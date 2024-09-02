@@ -2,34 +2,33 @@ const DOG_API = 'https://api.thedogapi.com/v1';
 const CAT_API = 'https://api.thecatapi.com/v1';
 const BREEDS = 'https://api.thedogapi.com/v1/images/search?limit=10&breed_ids=1'
 
-const randomContainer = document.querySelector("#random-container")
-randomContainer.innerHTML = ""
+const container = document.querySelector("#container")
 
-const dogs = fetch(BREEDS)
-console.log(BREEDS)
-dogs.then(response => response.json())
-  .then(data => {
-    console.log(data)
-    data.forEach(dog => {
-      const img = document.createElement("img")
-      img.src = dog.url
-      img.style.width = "200px"
-      img.style.height = "200px"
-      randomContainer.appendChild(img)
+const clear = () => {
+  container.innerHTML = ""
+}
+
+const main = async () => {
+  clear()
+  const dogs = getDogs(10, 1)
+  dogs.then(response => response.json())
+    .then(data => {
+      data.forEach(dog => {
+	container.appendChild(createDogElement(dog))
+      })
     })
-  })
+}
 
+const getDogs = async (limit, breed_id) => {
+  return fetch(`${DOG_API}/images/search?limit=${limit}&breed_ids=${breed_id}`)
+}
 
-// const initialLoad = async () => {
-//   const baseUrl = `${DOG_API}/breeds`;
-//   const params = new URLSearchParams({
-//     limit: 1,
-//   });
-//   const breeds = await fetch(`${baseUrl}?${params.toString()}`);
-//   const breedsJson = await breeds.json();
-//   breedsJson.forEach(breed => {
-//     console.log(breed.id);
-//   });
-// }
+const createDogElement = (dog) => {
+  const img = document.createElement("img")
+  img.src = dog.url
+  img.width = 300
+  img.height = 300
+  return img
+}
 
-// initialLoad();
+main();
