@@ -147,7 +147,7 @@ const clearButton = document.querySelector("#clear")
 clearButton.onclick = async () => {
   await deleteFavourites()
   clearFavourites()
-  showFavourites()
+  setTimeout(showFavourites, 1000)
 };
 
 showFavourites();
