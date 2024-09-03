@@ -1,46 +1,12 @@
-const DOG_API = 'https://api.thedogapi.com/v1';
-const CAT_API = 'https://api.thecatapi.com/v1';
-const BREEDS = 'https://api.thedogapi.com/v1/images/search?limit=10&breed_ids=1'
-const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWuocM3qAqRJC';
+const guess = document.getElementById('guess');
+const guessSubmit = document.getElementById('guess-submit');
+const answer = document.getElementById('answer');
 
-const container = document.querySelector("#container")
-
-const clear = () => {
-  container.innerHTML = ""
-}
-
-export const main = async (numDogs = 10) => {
-  clear()
-  const breed = await getRandBreed()
-  const dogs = await getDogs(numDogs, breed)
-  const data = await dogs.json()
-  data.forEach(dog => {
-    container.appendChild(createDogElement(dog))
-  })
-}
-
-const getDogs = async (limit, breed_id) => {
-  const params = new URLSearchParams(
-    {
-      limit: limit,
-      breed_ids: breed_id,
-      api_key: CAT_API_KEY,
-    }
-  )
-  return await fetch(`${CAT_API}/images/search?${params}`)
-}
-
-const getRandBreed = async () => {
-  const breeds = await fetch(`${CAT_API}/breeds`)
-  const data = await breeds.json()
-  const rand = Math.floor(Math.random() * data.length)
-  return data[rand].id
-}
-
-const createDogElement = (dog) => {
-  const img = document.createElement("img")
-  img.src = dog.url
-  img.width = 300
-  img.height = 300
-  return img
-}
+guessSubmit.addEventListener('click', (e) => {
+  if (guess.value === answer.innerHTML) {
+    alert('Correct!');
+  } else {
+    alert('Incorrect!');
+  }
+  answer.style.display = 'block';
+});

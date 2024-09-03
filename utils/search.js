@@ -1,7 +1,8 @@
-import { main } from './guess.js';
+import { main } from './cats.js';
 
-const dogNumber = document.querySelector('#dog-number');
+const search = document.getElementById('search');
+const quantity = document.getElementById('quantity');
 
-dogNumber.addEventListener('change', (e) => {
-  main(Number(e.target.value));
+search.addEventListener('click', (e) => {
+  main(Number(quantity.value));
 });
