@@ -10,7 +10,7 @@
       rel="stylesheet"
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
-      />
+    />
 
     <!-- Our Styles -->
     <link href="styles.css" rel="stylesheet" />
@@ -20,19 +20,36 @@
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
-      ></script>
+    ></script>
 
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Our Scripts -->
     <script type="text/javascript" src="index.js" defer></script>
+
+    <style>
+      h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.5rem;
+        color: #343a40;
+        text-align: center;
+        background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px #000000;
+      }
+
+      h1.incorrect {
+        color: #ff4d4d;
+        font-size: 2rem;
+      }
+    </style>
   </head>
 
   <body>
-
+    <h1 class="my-4">Guess the Cat Breed</h1>
     <div class="container">
-      <h1 class="my-4">Guess the Cat Breed</h1>
       <div id="container" class="mb-3"></div>
       <div id="options"></div>
     </div>

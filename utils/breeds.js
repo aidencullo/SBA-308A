@@ -1,4 +1,4 @@
-import { appendFormElements } from "../index.js";
+import { appendFormElements, showFavourites } from "../index.js";
 import { addToFavourites } from "./favourites.js";
 
 const CAT_API = 'https://api.thecatapi.com/v1';

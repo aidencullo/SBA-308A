@@ -34,10 +34,10 @@ const createSubmitButton = () => {
   return button;
 };
 
+
 const handleFormSubmit = async () => {
   const numImages = document.querySelector('#numImages').value;
   const answer = await showPhotos(numImages);
-  console.log(answer);
   showOptions(answer);
 };
 
@@ -83,8 +83,6 @@ const appendFormElements = () => {
 
 appendFormElements();
 // showWrongGuesses();
-
-export { createInputElement, createSubmitButton, handleFormSubmit, appendFormElements };
 
 const createFavourite = async (imgId) => {
   const baseUrl = 'https://api.thecatapi.com/v1/favourites';
@@ -150,5 +148,6 @@ const deleteFavourites = async () => {
   });
 };
 
-deleteFavourites();
 showFavourites();
+
+export { appendFormElements, showFavourites };
