@@ -7,7 +7,7 @@ const clear = () => {
   container.innerHTML = ""
 }
 
-export const main = async (numDogs = 10) => {
+const showCats = async (numDogs = 10) => {
   clear()
   const breed = await getRandBreed()
   const dogs = await getDogs(numDogs, breed)
@@ -43,3 +43,5 @@ const createDogElement = (dog) => {
   img.height = 300
   return img
 }
+
+export default showCats

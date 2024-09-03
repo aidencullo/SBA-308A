@@ -1,5 +1,5 @@
-// import './utils/search.js';
-import { main } from './utils/cats.js';
+import showPhotos from './utils/cats.js';
+import showOptions from './utils/breeds.js';
 
 const container = document.querySelector('#container');
 let numImages = 0;
@@ -15,7 +15,8 @@ const getNumImages = () => {
   button.textContent = 'Submit';
   button.addEventListener('click', () => {
     const numImages = document.querySelector('#numImages').value;
-    main(numImages);
+    showPhotos(numImages);
+    showOptions(numImages);
   });
   container.appendChild(input);
   container.appendChild(button);
