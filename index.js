@@ -108,26 +108,14 @@ const createFavourite = async (imgId) => {
 
 const showFavourites = async () => {
   const favourites = await getFavourites();
-  const container = document.getElementById('container');
-  const favouritesDiv = document.createElement('div');
-  const title = document.createElement('h1');
-  title.textContent = 'Incorrect Guesses';
-  favouritesDiv.appendChild(title);
+  const container = document.getElementById('favourites-container');
 
-  // Create list and list items
-  const favouritesList = document.createElement('ul');
   favourites.forEach((favourite) => {
-    const favouritesListItem = document.createElement('li');
     const img = document.createElement('img');
     img.src = favourite.image.url;
     img.style.width = '200px';
-    favouritesListItem.appendChild(img);
-    favouritesList.appendChild(favouritesListItem);
+    container.appendChild(img);
   });
-  favouritesDiv.appendChild(favouritesList);
-
-  // Append to container
-  container.appendChild(favouritesDiv);
 };
 
 const deleteFavourites = async () => {
