@@ -8,9 +8,8 @@ const clear = () => {
 }
 
 export const main = async (numDogs = 10) => {
-  await clear()
+  clear()
   const breed = await getRandBreed()
-  writeToAnswer(breed)
   const dogs = await getDogs(numDogs, breed)
   const data = await dogs.json()
   data.forEach(dog => {
@@ -43,10 +42,4 @@ const createDogElement = (dog) => {
   img.width = 300
   img.height = 300
   return img
-}
-
-const writeToAnswer = (breed) => {
-  const answer = document.getElementById("answer")
-  answer.style.display = "none"
-  answer.innerText = breed
 }
