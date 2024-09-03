@@ -12,22 +12,17 @@ const showOptions = async (id, name) => {
   breeds.push(name)
 
   breeds.forEach(breed => {
-    // Create a radio input element
     const radioInput = document.createElement("input");
     radioInput.type = "radio";
     radioInput.name = "breed";  // All radio buttons share the same name attribute
     radioInput.value = breed;
 
-    // Create a label for the radio button
     const label = document.createElement("label");
     label.textContent = breed;
-    label.htmlFor = breed;  // Associate label with radio button
 
-    // Append the radio input and label to the options
     options.appendChild(radioInput);
     options.appendChild(label);
 
-    // Add a line break for better spacing (optional)
     options.appendChild(document.createElement("br"));
   });
 
