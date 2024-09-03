@@ -10,6 +10,7 @@ const clear = () => {
 }
 
 export const main = async (numDogs = 10) => {
+  clear()
   const breed = await getRandBreed()
   const dogs = await getDogs(numDogs, breed)
   const data = await dogs.json()
@@ -30,7 +31,10 @@ const getDogs = async (limit, breed_id) => {
 }
 
 const getRandBreed = async () => {
-  return "beng";
+  const breeds = await fetch(`${CAT_API}/breeds`)
+  const data = await breeds.json()
+  const rand = Math.floor(Math.random() * data.length)
+  return data[rand].id
 }
 
 const createDogElement = (dog) => {
