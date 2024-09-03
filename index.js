@@ -137,9 +137,17 @@ const deleteFavourites = async () => {
 };
 
 const clearFavourites = async () => {
-  
   const container = document.getElementById('favourites-container');
   container.innerHTML = '';
+};
+
+
+const clearButton = document.querySelector("#clear")
+
+clearButton.onclick = async () => {
+  await deleteFavourites()
+  clearFavourites()
+  showFavourites()
 };
 
 showFavourites();
