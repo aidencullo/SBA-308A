@@ -136,6 +136,12 @@ const deleteFavourites = async () => {
   });
 };
 
+const clearFavourites = async () => {
+  
+  const container = document.getElementById('favourites-container');
+  container.innerHTML = '';
+};
+
 showFavourites();
 
-export { appendFormElements, showFavourites };
+export { appendFormElements, showFavourites, clearFavourites, deleteFavourites, createFavourite };

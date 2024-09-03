@@ -1,4 +1,4 @@
-import { appendFormElements, showFavourites } from "../index.js";
+import { appendFormElements, clearFavourites, showFavourites } from "../index.js";
 import { addToFavourites } from "./favourites.js";
 
 const CAT_API = 'https://api.thecatapi.com/v1';
@@ -40,8 +40,8 @@ const showOptions = async (id, name) => {
       alert("Correct!");
     } else {
       alert(`Incorrect. The correct name is ${name}.`);
+      await addToFavourites(id);
     }
-    await addToFavourites(id);
     restart();
   };
   container.appendChild(submitButton);
@@ -51,6 +51,8 @@ const restart = () => {
   container.innerHTML = "";
   options.innerHTML = "";
   appendFormElements();
+  clearFavourites();
+  showFavourites();
 };
 
 const getRandBreed = async () => {
