@@ -1,16 +1,29 @@
-# Random Dog Image App
+# Cat Breed Guessing Game
 
-## Description
-A simple web app that fetches and displays a random dog image from the [Dog CEO API](https://dog.ceo/dog-api/). It shows a loading message while fetching the image and displays a placeholder if the request fails.
+This is a web application that challenges users to guess cat breeds based on images retrieved from The Cat API. It also keeps track of incorrect guesses and displays them to the user.
 
 ## Features
-- Fetches and displays random dog images.
-- Shows loading states and handles errors.
-- Responsive image layout.
 
-## Usage
-1. Open `index.html` in your browser.
-2. Click the "Get Random Dog" button to fetch a new image.
+- **Guess the Cat Breed**: The app fetches cat images, and users can guess the breed. It provides options for breeds, and users must select the correct one.
+- **Track Incorrect Guesses**: If a user guesses incorrectly, the app will keep track of their wrong guesses and display them.
 
-## License
-MIT License.
+## How It Works
+
+1. **Initial Setup**:
+   - The app uses `fetch` to get cat breeds and images from The Cat API.
+   - Users can input the number of images they'd like to guess from.
+
+2. **Guessing the Breed**:
+   - After submitting the number of images, the app displays the images and possible breed options.
+   - Users can make their guesses, and incorrect guesses are recorded.
+
+3. **Wrong Guesses**:
+   - The app creates a list of wrong guesses and displays them under a "Wrong Guesses" section.
+
+## API Integration
+
+This app uses the following endpoints from The Cat API:
+
+- **GET /breeds**: Fetches a list of cat breeds.
+- **GET /favourites**: Retrieves the user's favorite cat images.
+- **
