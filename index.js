@@ -2,7 +2,7 @@ const CAT_FAVOURITES = 'https://api.thecatapi.com/v1/favourites';
 const CAT_API = 'https://api.thecatapi.com/v1';
 const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWuocM3qAqRJC';
 
-import showPhotos from './utils/cats.js';
+import showCats from './utils/cats.js';
 import showOptions from './utils/breeds.js';
 
 const container = document.querySelector('#container');
@@ -37,8 +37,8 @@ const createSubmitButton = () => {
 
 const handleFormSubmit = async () => {
   const numImages = document.querySelector('#numImages').value;
-  const answer = await showPhotos(numImages);
-  showOptions(answer);
+  const { id, name } = await showCats(numImages);
+  showOptions(id, name);
 };
 
 const getRandBreed = async () => {

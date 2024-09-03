@@ -20,9 +20,13 @@ const createFavourite = async (imgId) => {
   });
 }
 
-const addToFavourites = async (imgId) => {
-  const container = document.getElementById('container');
-  console.log(container.children);
+const addToFavourites = async (breed) => {
+  try {
+    await createFavourite(imgId);
+    alert('Image added to favourites');
+  } catch (error) {
+    alert('An error occurred while adding the image to favourites');
+  }
 }
 
 export { addToFavourites };

@@ -9,13 +9,16 @@ const clear = () => {
 
 const showCats = async (numDogs = 10) => {
   clear()
-  const { id: breed, name } = await getRandBreed()
-  const dogs = await getDogs(numDogs, breed)
+  const { id, name } = await getRandBreed()
+  const dogs = await getDogs(numDogs, id)
   const data = await dogs.json()
   data.forEach(dog => {
     container.appendChild(createDogElement(dog))
   })
-  return name
+  return {
+    id,
+    name,
+  }
 }
 
 const getDogs = async (limit, breed_id) => {

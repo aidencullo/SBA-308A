@@ -7,9 +7,9 @@ const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWu
 const container = document.querySelector("#container")
 const options = document.querySelector("#options")
 
-const showOptions = async (answer) => {
+const showOptions = async (id, name) => {
   const breeds = await getRandBreeds();
-  breeds.push(answer)
+  breeds.push(name)
 
   breeds.forEach(breed => {
     // Create a radio input element
@@ -36,12 +36,12 @@ const showOptions = async (answer) => {
   submitButton.textContent = "Submit";
   submitButton.onclick = async () => {
     const selected = document.querySelector('input[name="breed"]:checked').value;
-    if (selected === answer) {
+    if (selected === name) {
       alert("Correct!");
     } else {
-      alert(`Incorrect. The correct answer is ${answer}.`);
+      alert(`Incorrect. The correct name is ${name}.`);
     }
-    await addToFavourites();
+    await addToFavourites(id);
     restart();
   };
   container.appendChild(submitButton);
