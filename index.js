@@ -24,7 +24,7 @@ const handleFormSubmit = async () => {
   const numImages = document.querySelector('#numImages').value;
   const answer = await showPhotos(numImages);
   console.log(answer);
-  showOptions(numImages, answer);
+  showOptions(answer);
 };
 
 const appendFormElements = () => {

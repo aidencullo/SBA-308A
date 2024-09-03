@@ -4,9 +4,10 @@ const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWu
 const container = document.querySelector("#container")
 const options = document.querySelector("#options")
 
-const showOptions = async () => {
+const showOptions = async (answer) => {
   const breeds = await getRandBreeds();
-  
+  breeds.push(answer)
+
   breeds.forEach(breed => {
     // Create a radio input element
     const radioInput = document.createElement("input");
@@ -26,6 +27,20 @@ const showOptions = async () => {
     // Add a line break for better spacing (optional)
     options.appendChild(document.createElement("br"));
   });
+
+  // Create a submit button
+  const submitButton = document.createElement("button");
+  submitButton.textContent = "Submit";
+  submitButton.onclick = () => {
+    const selected = document.querySelector('input[name="breed"]:checked').value;
+    if (selected === answer) {
+      alert("Correct!");
+    } else {
+      alert(`Incorrect. The correct answer is ${answer}.`);
+    }
+  };
+  container.appendChild(submitButton);
+  
 };
 
 
@@ -37,7 +52,7 @@ const getRandBreed = async () => {
 }
 
 const getRandBreeds = async () => {
-  return Promise.all(Array.from({length: 4}, async () => await getRandBreed()))
+  return Promise.all(Array.from({length: 3}, async () => await getRandBreed()))
 }
 
 export default showOptions

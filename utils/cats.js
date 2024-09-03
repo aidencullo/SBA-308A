@@ -9,13 +9,13 @@ const clear = () => {
 
 const showCats = async (numDogs = 10) => {
   clear()
-  const breed = await getRandBreed()
+  const { id: breed, name } = await getRandBreed()
   const dogs = await getDogs(numDogs, breed)
   const data = await dogs.json()
   data.forEach(dog => {
     container.appendChild(createDogElement(dog))
   })
-  return breed
+  return name
 }
 
 const getDogs = async (limit, breed_id) => {
@@ -34,7 +34,10 @@ const getRandBreed = async () => {
   const breeds = await fetch(`${CAT_API}/breeds`)
   const data = await breeds.json()
   const rand = Math.floor(Math.random() * data.length)
-  return data[rand].id
+  return {
+    id: data[rand].id,
+    name: data[rand].name
+  }
 }
 
 const createDogElement = (dog) => {
