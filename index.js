@@ -35,3 +35,5 @@ const appendFormElements = () => {
 };
 
 appendFormElements();
+
+export { createInputElement, createSubmitButton, handleFormSubmit, appendFormElements };

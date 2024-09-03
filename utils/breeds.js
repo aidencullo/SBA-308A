@@ -1,3 +1,5 @@
+import { appendFormElements } from "../index.js";
+
 const CAT_API = 'https://api.thecatapi.com/v1';
 const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWuocM3qAqRJC';
 
@@ -38,11 +40,16 @@ const showOptions = async (answer) => {
     } else {
       alert(`Incorrect. The correct answer is ${answer}.`);
     }
+    restart();
   };
   container.appendChild(submitButton);
-  
 };
 
+const restart = () => {
+  container.innerHTML = "";
+  options.innerHTML = "";
+  appendFormElements();
+};
 
 const getRandBreed = async () => {
   const breeds = await fetch(`${CAT_API}/breeds`)
