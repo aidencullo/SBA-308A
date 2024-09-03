@@ -9,16 +9,13 @@ const clear = () => {
   container.innerHTML = ""
 }
 
-export const main = (numDogs = 10) => {
-  console.log(numDogs)
-  clear()
-  const dogs = getDogs(numDogs, 'beng')
-  dogs.then(response => response.json())
-    .then(data => {
-      data.forEach(dog => {
-	container.appendChild(createDogElement(dog))
-      })
-    })
+export const main = async (numDogs = 10) => {
+  const breed = await getRandBreed()
+  const dogs = await getDogs(numDogs, breed)
+  const data = await dogs.json()
+  data.forEach(dog => {
+    container.appendChild(createDogElement(dog))
+  })
 }
 
 const getDogs = async (limit, breed_id) => {
@@ -26,10 +23,14 @@ const getDogs = async (limit, breed_id) => {
     {
       limit: limit,
       breed_ids: breed_id,
-      api_key: CAT_API_KEY
+      api_key: CAT_API_KEY,
     }
   )
-  return fetch(`${CAT_API}/images/search?${params}`)
+  return await fetch(`${CAT_API}/images/search?${params}`)
+}
+
+const getRandBreed = async () => {
+  return "beng";
 }
 
 const createDogElement = (dog) => {
