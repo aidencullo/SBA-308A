@@ -1,4 +1,5 @@
 import { appendFormElements } from "../index.js";
+import { addToFavourites } from "./favourites.js";
 
 const CAT_API = 'https://api.thecatapi.com/v1';
 const CAT_API_KEY = 'live_85IigfDFRAJz3RZl3AHEGeioejA1FeoZe5RpLo7Si7yYzbLATq0UWuocM3qAqRJC';
@@ -33,13 +34,14 @@ const showOptions = async (answer) => {
   // Create a submit button
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
-  submitButton.onclick = () => {
+  submitButton.onclick = async () => {
     const selected = document.querySelector('input[name="breed"]:checked').value;
     if (selected === answer) {
       alert("Correct!");
     } else {
       alert(`Incorrect. The correct answer is ${answer}.`);
     }
+    await addToFavourites();
     restart();
   };
   container.appendChild(submitButton);
