@@ -15,6 +15,7 @@ const showCats = async (numDogs = 10) => {
   data.forEach(dog => {
     container.appendChild(createDogElement(dog))
   })
+  return breed
 }
 
 const getDogs = async (limit, breed_id) => {

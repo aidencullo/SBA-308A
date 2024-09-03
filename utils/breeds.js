@@ -36,10 +36,8 @@ const getRandBreed = async () => {
   return data[rand].name
 }
 
-
 const getRandBreeds = async () => {
   return Promise.all(Array.from({length: 4}, async () => await getRandBreed()))
 }
-
 
 export default showOptions
