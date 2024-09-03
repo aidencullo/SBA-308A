@@ -1,2 +1,2 @@
-import './utils/random.js';
+import './utils/search.js';
 import './utils/guess.js';
