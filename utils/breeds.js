@@ -23,9 +23,9 @@ const showOptions = async (id, name) => {
     label.textContent = breed;
     label.htmlFor = breed;  // Associate label with radio button
 
-    // Append the radio input and label to the container
-    container.appendChild(radioInput);
-    container.appendChild(label);
+    // Append the radio input and label to the options
+    options.appendChild(radioInput);
+    options.appendChild(label);
 
     // Add a line break for better spacing (optional)
     options.appendChild(document.createElement("br"));
@@ -44,7 +44,7 @@ const showOptions = async (id, name) => {
     }
     restart();
   };
-  container.appendChild(submitButton);
+  options.appendChild(submitButton);
 };
 
 const restart = () => {

@@ -44,3 +44,13 @@ button {
 button:hover {
   background-color: #0056b3; /* Darken button on hover */
 }
+#container {
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px; /* Add some padding inside the div */
+}
+
+#options {
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px; /* Add some padding inside the div */
+}
+
